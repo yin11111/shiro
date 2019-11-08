@@ -4,4 +4,6 @@ import com.example.demo.bean.User;
 
 public interface UserService {
     User getUserByName(String name);
+
+    int register(User user);
 }

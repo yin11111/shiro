@@ -8,7 +8,7 @@ spring:
     username: root
     password: syn123
     # 使用druid数据源
-    type: com.alibaba.druid.pool.DruidDataSource
+    type: com.mysql.cj.jdbc.MysqlDataSource
     filters: stat
     maxActive: 20
     initialSize: 1
@@ -22,5 +22,9 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
 mybatis:
-  mapper-locations: classpath*:mybatis/mapper/*.xml
+  mapper-locations: classpath:mapper/*.xml

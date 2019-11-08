@@ -3,7 +3,9 @@ package com.example.demo.service.Impl;
 import com.example.demo.bean.Permissions;
 import com.example.demo.bean.Role;
 import com.example.demo.bean.User;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -14,13 +16,20 @@ import java.util.Set;
 @Service
 public class UserServiceImpl implements UserService {
 
+        @Autowired
+        private UserMapper userMapper;
         @Override
         public User getUserByName(String getMapByName) {
             //模拟数据库查询，正常情况此处是从数据库或者缓存查询。
             return getMapByName(getMapByName);
         }
 
-        /**
+    @Override
+    public int register(User user) {
+        return userMapper.insertUser(user);
+    }
+
+    /**
          * 模拟数据库查询
          * @param userName
          * @return
