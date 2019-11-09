@@ -19,32 +19,53 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
+@RequestMapping("/userApi")
 public class UserController {
     @Autowired
     private UserService userService;
 
 
-    @RequestMapping("/zhuce")
-    public String zhuce(){
-        return "zhuce";
+    /**
+     * 跳转注册页面
+     * @return
+     */
+    @RequestMapping("/register")
+    public String register(){
+        return "register";
     }
 
-       @RequestMapping("/login")
+    /**
+     * 跳转登录页面
+     * @return
+     */
+    @RequestMapping("/login")
     public String login(){
         return "login";
     }
 
 
-
-    @RequestMapping("/zhuceAction")
-    public String zhuceAction(User user){
-
-       int i= userService.register(user);
-
+    /**
+     * 注册实现
+     * @param user
+     * @return
+     */
+    @RequestMapping("/registerAction")
+    public String registerAction(User user){
+        try{
+            userService.register(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "login";
+
     }
 
-    @PostMapping("/denglu")
+    /**
+     * 登录方法实现
+     * @param user
+     * @return
+     */
+    @PostMapping("/loginAction")
     public ModelAndView login(User user) {
         Map<String,String> map=new HashMap<>();
         ModelAndView modelAndView=new ModelAndView();
@@ -58,8 +79,6 @@ public class UserController {
             //进行验证，这里可以捕获异常，然后返回对应信息
             subject.login(usernamePasswordToken);
             map.put("message","密码正确");
-//            subject.checkRole("admin");
-//            subject.checkPermissions("query", "add");
         } catch (AuthenticationException e) {
             e.printStackTrace();
             map.put("message","密码错误！");
@@ -72,11 +91,5 @@ public class UserController {
     }
 
 
-    //注解验角色和权限
-    @RequiresRoles("admin")
-    @RequiresPermissions("add")
-    @RequestMapping("/index")
-    public String index() {
-        return "index!";
-    }
+
 }

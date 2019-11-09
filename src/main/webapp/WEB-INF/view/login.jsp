@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<form name="loginForm" method="post" action="/denglu" name="pay">
+<form name="loginForm" method="post" action="/userApi/loginAction" name="pay">
     <table>
         <tr>
             <td>ÓÃ»§Ãû:<input type="text" name="userName" id="userName"></td>
@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td><input type="submit" value="µÇÂ¼" style="background-color:pink">
-                <input type="button"  value="×¢²á" style="background-color:red" onclick="location.href='zhuce'" /></td>
+                <input type="button"  value="×¢²á" style="background-color:red" onclick="location.href='/userApi/register'" /></td>
         </tr>
     </table>
 </form>

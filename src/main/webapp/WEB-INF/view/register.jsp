@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<form name="loginForm" method="post" action="/zhuceAction">
+<form name="loginForm" method="post" action="/userApi/registerAction">
     <table>
         <tr>
             <td>ำรปงร๛:<input type="text" name="userName" id="userName"></td>
