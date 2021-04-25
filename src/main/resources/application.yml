@@ -4,9 +4,9 @@ spring:
   datasource:
     name: test
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://132.232.53.91:3305/yhp?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    url: jdbc:mysql://192.168.200.112/yhp?useUnicode=true&characterEncoding=utf-8&useSSL=true
     username: root
-    password: syn123
+    password: root
     # 使用druid数据源
     type: com.mysql.cj.jdbc.MysqlDataSource
     filters: stat

@@ -39,6 +39,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("/login")
+    @ResponseBody
     public String login(){
         return "login";
     }
